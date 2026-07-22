@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Dashboard() {
 
-  const [career, setCareer] = useState(null);
+  const [career, setCareer] = useState<any>(null);
 
   useEffect(() => {
     const savedCareer = localStorage.getItem("career");
@@ -31,33 +31,65 @@ export default function Dashboard() {
         DIETRO LA PANCHINA
       </h1>
 
-      <div className="space-y-4 text-xl">
+ <div className="space-y-4 text-xl">
 
-        <p>
-          👤 Allenatore: {career.coachName}
-        </p>
+  <p>
+    👤 Allenatore: {career.coach.name}
+  </p>
 
-        <p>
-          🎂 Età: {career.coachAge}
-        </p>
+  <p>
+    🎂 Età: {career.coach.age}
+  </p>
 
-        <p>
-          🌍 Nazionalità: {career.nationality}
-        </p>
+  <p>
+    🌍 Nazionalità: {career.coach.nationality}
+  </p>
 
-        <p>
-          🏟 Squadra: {career.team}
-        </p>
 
-        <p>
-          💰 Budget mercato: {career.transferBudget} €
-        </p>
+  <hr className="border-gray-700 my-6" />
 
-        <p>
-          👥 Monte ingaggi: {career.salaryBudget} €
-        </p>
 
-      </div>
+  <p>
+    🏟 Squadra: {career.team.name}
+  </p>
+
+  <p>
+    ⚽ Modulo: {career.team.formation}
+  </p>
+
+  <p>
+    🎯 Obiettivo: {career.team.objective}
+  </p>
+
+
+  <hr className="border-gray-700 my-6" />
+
+
+  <p>
+    🧠 Stile di gioco: {career.philosophy.style}
+  </p>
+
+  <p>
+    🔥 Pressing: {career.philosophy.pressing}
+  </p>
+
+  <p>
+    🛡 Linea difensiva: {career.philosophy.defensiveLine}
+  </p>
+
+
+  <hr className="border-gray-700 my-6" />
+
+
+  <p>
+    💰 Budget mercato: {career.finance.transferBudget} €
+  </p>
+
+  <p>
+    👥 Monte ingaggi: {career.finance.salaryBudget} €
+  </p>
+
+</div>
 
     </main>
   );
