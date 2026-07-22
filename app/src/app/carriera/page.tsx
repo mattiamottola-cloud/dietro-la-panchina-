@@ -12,6 +12,24 @@ export default function Carriera() {
   const [transferBudget, setTransferBudget] = useState("");
   const [salaryBudget, setSalaryBudget] = useState("");
 
+  const startCareer = () => {
+    const career = {
+      coachName,
+      coachAge,
+      nationality,
+      team: selectedTeam,
+      transferBudget,
+      salaryBudget,
+    };
+
+    localStorage.setItem(
+      "career",
+      JSON.stringify(career)
+    );
+
+    window.location.href = "/dashboard";
+  };
+
   return (
     <main className="min-h-screen bg-black text-white flex items-center justify-center">
 
@@ -137,23 +155,23 @@ export default function Carriera() {
 />
 
 
-          <button
-            className="
-            w-full
-            mt-6
-            bg-yellow-500
-            text-black
-            font-bold
-            p-4
-            rounded-xl
-            text-xl
-            hover:scale-105
-            transition
-            "
-          >
-            INIZIA STAGIONE
-          </button>
-
+     <button
+  onClick={startCareer}
+  className="
+  w-full
+  mt-6
+  bg-yellow-500
+  text-black
+  font-bold
+  p-4
+  rounded-xl
+  text-xl
+  hover:scale-105
+  transition
+  "
+>
+  INIZIA STAGIONE
+</button>
 
         </div>
 
