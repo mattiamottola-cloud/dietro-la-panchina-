@@ -9,6 +9,8 @@ export default function Carriera() {
   const [coachName, setCoachName] = useState("");
   const [coachAge, setCoachAge] = useState("");
   const [nationality, setNationality] = useState("");
+  const [transferBudget, setTransferBudget] = useState("");
+  const [salaryBudget, setSalaryBudget] = useState("");
 
   return (
     <main className="min-h-screen bg-black text-white flex items-center justify-center">
@@ -37,6 +39,8 @@ export default function Carriera() {
   type="number"
   className="w-full p-4 rounded bg-gray-900 border border-gray-700"
   placeholder="Età allenatore"
+  value={coachAge}
+  onChange={(e) => setCoachAge(e.target.value)}
 />
 
          <input
@@ -108,16 +112,21 @@ export default function Carriera() {
           </select>
 
 
-          <input
-            className="w-full p-4 rounded bg-gray-900 border border-gray-700"
-            placeholder="Budget mercato (€)"
-          />
+         <input
+  type="number"
+  className="w-full p-4 rounded bg-gray-900 border border-gray-700"
+  placeholder="Budget mercato (€)"
+  value={transferBudget}
+  onChange={(e) => setTransferBudget(e.target.value)}
+/>
 
-
-          <input
-            className="w-full p-4 rounded bg-gray-900 border border-gray-700"
-            placeholder="Monte ingaggi annuale (€)"
-          />
+       <input
+  type="number"
+  className="w-full p-4 rounded bg-gray-900 border border-gray-700"
+  placeholder="Monte ingaggi annuale (€)"
+  value={salaryBudget}
+  onChange={(e) => setSalaryBudget(e.target.value)}
+/>
 
 
           <button
