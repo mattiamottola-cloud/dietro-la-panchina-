@@ -72,7 +72,18 @@ const [objective, setObjective] = useState("");
 
 
   {/* PROFILO ALLENATORE */}
-  <div className="rounded-2xl bg-gray-900 p-6 border border-gray-700">
+  {/* PROFILO ALLENATORE */}
+<div
+  className="
+  rounded-2xl
+  p-6
+  border
+  border-gray-700
+  bg-cover
+  bg-center
+  bg-[url('/images/coach.jpg')]
+  "
+>
     <h2 className="text-2xl font-bold mb-6">
   👤 Allenatore
 </h2>
@@ -167,12 +178,22 @@ const [objective, setObjective] = useState("");
   </div>
 
 
-  {/* SQUADRA */}
-<div className="rounded-2xl bg-gray-900 p-6 border border-gray-700">
+{/* SQUADRA */}
+<div
+  className="
+  rounded-2xl
+  p-6
+  border
+  border-gray-700
+  bg-cover
+  bg-center
+  bg-[url('/images/team.jpg')]
+  "
+>
 
-<h2 className="text-2xl font-bold mb-6">
-  🏟 Squadra
-</h2>
+  <h2 className="text-2xl font-bold mb-6">
+    🏟 Squadra
+  </h2>
 
 
 <select
@@ -254,12 +275,22 @@ Valorizzare giovani
 
 </div>
 
-  {/* SOCIETA */}
-<div className="rounded-2xl bg-gray-900 p-6 border border-gray-700">
+ {/* SOCIETA */}
+<div
+  className="
+  rounded-2xl
+  p-6
+  border
+  border-gray-700
+  bg-cover
+  bg-center
+  bg-[url('/images/finance.jpg')]
+  "
+>
 
-<h2 className="text-2xl font-bold mb-6">
-  💰 Società
-</h2>
+  <h2 className="text-2xl font-bold mb-6">
+    💰 Società
+  </h2>
 
 
 <input
