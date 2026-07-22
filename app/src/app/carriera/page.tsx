@@ -112,20 +112,28 @@ export default function Carriera() {
           </select>
 
 
-         <input
-  type="number"
+<input
   className="w-full p-4 rounded bg-gray-900 border border-gray-700"
   placeholder="Budget mercato (€)"
   value={transferBudget}
-  onChange={(e) => setTransferBudget(e.target.value)}
+  onChange={(e) =>
+    setTransferBudget(
+      Number(e.target.value.replace(/\D/g, ""))
+        .toLocaleString("it-IT")
+    )
+  }
 />
 
-       <input
-  type="number"
+     <input
   className="w-full p-4 rounded bg-gray-900 border border-gray-700"
   placeholder="Monte ingaggi annuale (€)"
   value={salaryBudget}
-  onChange={(e) => setSalaryBudget(e.target.value)}
+  onChange={(e) =>
+    setSalaryBudget(
+      Number(e.target.value.replace(/\D/g, ""))
+        .toLocaleString("it-IT")
+    )
+  }
 />
 
 
