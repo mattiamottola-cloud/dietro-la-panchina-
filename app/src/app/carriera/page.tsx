@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { teams } from "@/data/teams";
 
 export default function Carriera() {
   return (
@@ -32,13 +33,16 @@ export default function Carriera() {
           />
 
 
-          <select className="w-full p-4 rounded bg-gray-900 border border-gray-700">
-            <option>Scegli squadra</option>
-            <option>Inter</option>
-            <option>Milan</option>
-            <option>Roma</option>
-            <option>Juventus</option>
-          </select>
+         <select className="w-full p-4 rounded bg-gray-900 border border-gray-700">
+  <option>Scegli squadra</option>
+
+  {teams.map((team) => (
+    <option key={team.name} value={team.name}>
+      {team.name}
+    </option>
+  ))}
+
+</select>
 
 
           <select className="w-full p-4 rounded bg-gray-900 border border-gray-700">
