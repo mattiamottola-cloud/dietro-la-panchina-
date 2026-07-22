@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <main className="min-h-screen relative flex items-center justify-center overflow-hidden">
 
@@ -56,8 +58,9 @@ export default function Home() {
 
 
         <motion.button
-          className="
-          mt-10
+  onClick={() => router.push("/carriera")}
+  className="
+  mt-10
           px-12
           py-4
           rounded-xl
