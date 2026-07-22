@@ -1,38 +1,87 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
+    <main className="min-h-screen relative flex items-center justify-center overflow-hidden">
 
-      <div className="absolute inset-0 bg-[url('/images/stadium.jpg')] bg-cover bg-center opacity-60"></div>
+      {/* Sfondo stadio */}
+      <motion.div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/stadium.jpg')",
+        }}
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{
+          duration: 2,
+          ease: "easeOut",
+        }}
+      />
 
+      {/* Overlay scuro */}
+      <div className="absolute inset-0 bg-black/60" />
+
+
+      {/* Contenuto */}
       <div className="relative z-10 text-center text-white">
 
-        <h1 className="text-6xl font-bold tracking-wider">
+
+        <motion.h1
+          className="text-7xl font-bold tracking-widest"
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1,
+          }}
+        >
           DIETRO
           <br />
           LA PANCHINA
-        </h1>
-
-        <p className="mt-6 text-xl text-gray-300">
-          La carriera continua anche dopo il fischio finale.
-        </p>
+        </motion.h1>
 
 
-        <button
+        <motion.p
+          className="mt-6 text-xl text-gray-300"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 1,
+            duration: 1,
+          }}
+        >
+          Vivi la carriera oltre il campo
+        </motion.p>
+
+
+        <motion.button
           className="
           mt-10
-          px-10
+          px-12
           py-4
           rounded-xl
           bg-yellow-500
           text-black
           font-bold
           text-xl
-          hover:scale-110
-          transition
+          shadow-lg
           "
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            delay: 1.5,
+            duration: 0.8,
+          }}
+          whileHover={{
+            scale: 1.1,
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
         >
           AVVIA CARRIERA
-        </button>
+        </motion.button>
 
       </div>
 
