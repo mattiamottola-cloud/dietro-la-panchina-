@@ -131,14 +131,55 @@ export default function Carriera() {
         transactions: [],
       },
 
-      clubState: {
-        presidentTrust: 50,
-        boardPressure: 0,
-      },
+    clubState: {
+  presidentTrust: 50,
+  boardPressure: 0,
+},
 
-      results: [],
-      meetings: [],
-      decisions: [],
+coachIdentity: {
+  footballStyle: playStyle,
+  mentality: "",
+  pressing,
+  defensiveApproach: defensiveLine,
+  notes: "",
+},
+
+staffRelations: [
+  {
+    staffId: "director",
+    value: 50,
+  },
+  {
+    staffId: "assistant",
+    value: 50,
+  },
+  {
+    staffId: "analyst",
+    value: 50,
+  },
+  {
+    staffId: "fitness",
+    value: 50,
+  },
+  {
+    staffId: "doctor",
+    value: 50,
+  },
+  {
+    staffId: "president",
+    value: 50,
+  },
+],
+
+staffMemories: [],
+
+marketOperations: [],
+
+events: [],
+
+results: [],
+meetings: [],
+decisions: [],
     };
 
     setPendingCareer(career);
