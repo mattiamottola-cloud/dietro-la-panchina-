@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { teams } from "@/data/teams";
 import { useState } from "react";
 import type { Career } from "@/types/career";
+import { saveCareer } from "@/lib/careerStorage";
 
 export default function Carriera() {
   const [selectedTeam, setSelectedTeam] = useState("");
@@ -65,8 +66,7 @@ const salaryBudgetNumber = Number(
     decisions: [],
   };
 
-  localStorage.setItem("career", JSON.stringify(career));
-
+  saveCareer(career);
   window.location.href = "/dashboard";
 };
 
@@ -88,7 +88,7 @@ const salaryBudgetNumber = Number(
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
 
-  {/* PROFILO ALLENATORE */}
+  
   {/* PROFILO ALLENATORE */}
 <div
   className="
