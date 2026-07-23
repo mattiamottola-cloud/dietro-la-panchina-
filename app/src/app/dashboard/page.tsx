@@ -3,7 +3,10 @@
 import { useEffect, useState } from "react";
 import { staff } from "@/data/staff";
 import type { Career } from "@/types/career";
-import { loadCareer } from "@/lib/careerStorage";
+import {
+  loadCareer,
+  saveCareer,
+} from "@/lib/careerStorage";
 
 export default function Dashboard() {
   const [career, setCareer] = useState<Career | null>(null);
@@ -15,6 +18,54 @@ export default function Dashboard() {
       setCareer(savedCareer);
     }
   }, []);
+
+  function advanceDay() {
+    if (!career) {
+      return;
+    }
+
+    const [year, month, day] = career.currentDate
+      .split("-")
+      .map(Number);
+
+    if (
+      Number.isNaN(year) ||
+      Number.isNaN(month) ||
+      Number.isNaN(day)
+    ) {
+      console.error("Data della carriera non valida.");
+      return;
+    }
+
+    const nextDate = new Date(
+      Date.UTC(year, month - 1, day + 1)
+    );
+
+    const updatedCareer: Career = {
+      ...career,
+      currentDate: nextDate.toISOString().slice(0, 10),
+    };
+
+    setCareer(updatedCareer);
+    saveCareer(updatedCareer);
+  }
+
+  function formatCareerDate(date: string) {
+    const [year, month, day] = date
+      .split("-")
+      .map(Number);
+
+    const careerDate = new Date(
+      Date.UTC(year, month - 1, day)
+    );
+
+    return new Intl.DateTimeFormat("it-IT", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC",
+    }).format(careerDate);
+  }
 
   if (!career) {
     return (
@@ -31,21 +82,31 @@ export default function Dashboard() {
         bg-black
         bg-cover
         bg-center
-        p-10
+        p-4
         text-white
+        md:p-10
       "
       style={{
         backgroundImage: "url('/images/stadium.jpg')",
       }}
     >
-      <div className="min-h-screen rounded-3xl bg-black/70 p-10">
-        <h1 className="mb-6 text-center text-5xl font-bold">
+      <div className="min-h-screen rounded-3xl bg-black/70 p-5 md:p-10">
+        <h1 className="mb-2 text-center text-4xl font-bold md:text-5xl">
           DIETRO LA PANCHINA
         </h1>
 
-        <div className="mb-10 text-center">
+        <p className="text-center text-lg text-gray-300">
+          {career.coach.name} · {career.team.name}
+        </p>
+
+        <p className="mt-2 text-center font-semibold text-yellow-400">
+          {formatCareerDate(career.currentDate)}
+        </p>
+
+        <div className="mb-10 mt-6 text-center">
           <button
             type="button"
+            onClick={advanceDay}
             className="
               rounded-xl
               bg-yellow-500
@@ -55,6 +116,7 @@ export default function Dashboard() {
               text-black
               transition
               hover:scale-105
+              hover:bg-yellow-400
             "
           >
             AVANZA GIORNO
@@ -111,6 +173,8 @@ export default function Dashboard() {
                     p-3
                     font-bold
                     text-black
+                    transition
+                    hover:bg-yellow-400
                   "
                 >
                   APRI CHAT
