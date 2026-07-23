@@ -9,6 +9,21 @@ export const staff = [
 
     initialRelationship: 50,
 
+    interactionLevel: "high",
+
+    skills: [
+      "Mercato",
+      "Budget",
+      "Valutazione giocatori",
+      "Costruzione rosa",
+    ],
+
+    consultationFocus: [
+      "Sostenibilità economica",
+      "Compatibilità tattica",
+      "Profili giocatori",
+    ],
+
     personality: {
       style: "Pragmatico",
       communication: "Diretta",
@@ -22,6 +37,7 @@ export const staff = [
     },
   },
 
+
   {
     id: "assistant",
     name: "Luca Ferri",
@@ -31,6 +47,21 @@ export const staff = [
     department: "Area Tecnica",
 
     initialRelationship: 50,
+
+    interactionLevel: "high",
+
+    skills: [
+      "Allenamento",
+      "Gestione squadra",
+      "Preparazione partita",
+      "Spogliatoio",
+    ],
+
+    consultationFocus: [
+      "Prestazioni squadra",
+      "Gestione gruppo",
+      "Adattamento tattico",
+    ],
 
     personality: {
       style: "Collaborativo",
@@ -45,6 +76,7 @@ export const staff = [
     },
   },
 
+
   {
     id: "analyst",
     name: "Andrea Conti",
@@ -54,6 +86,21 @@ export const staff = [
     department: "Area Tecnica",
 
     initialRelationship: 50,
+
+    interactionLevel: "high",
+
+    skills: [
+      "Analisi tattica",
+      "Statistiche",
+      "Studio avversari",
+      "Analisi dati",
+    ],
+
+    consultationFocus: [
+      "Punti di forza avversari",
+      "Debolezze squadra",
+      "Coerenza tattica",
+    ],
 
     personality: {
       style: "Analitico",
@@ -68,6 +115,7 @@ export const staff = [
     },
   },
 
+
   {
     id: "fitness",
     name: "Paolo Ricci",
@@ -77,6 +125,20 @@ export const staff = [
     department: "Area Tecnica",
 
     initialRelationship: 50,
+
+    interactionLevel: "medium",
+
+    skills: [
+      "Preparazione atletica",
+      "Gestione carichi",
+      "Condizione fisica",
+    ],
+
+    consultationFocus: [
+      "Stanchezza squadra",
+      "Calendario",
+      "Recupero giocatori",
+    ],
 
     personality: {
       style: "Esigente",
@@ -91,6 +153,7 @@ export const staff = [
     },
   },
 
+
   {
     id: "doctor",
     name: "Francesco Riva",
@@ -100,6 +163,20 @@ export const staff = [
     department: "Area Medica",
 
     initialRelationship: 50,
+
+    interactionLevel: "low",
+
+    skills: [
+      "Prevenzione infortuni",
+      "Recupero giocatori",
+      "Salute atletica",
+    ],
+
+    consultationFocus: [
+      "Infortuni",
+      "Recuperi",
+      "Rischi fisici",
+    ],
 
     personality: {
       style: "Calmo",
@@ -114,6 +191,7 @@ export const staff = [
     },
   },
 
+
   {
     id: "president",
     name: "Giovanni Esposito",
@@ -123,6 +201,20 @@ export const staff = [
     department: "Dirigenza",
 
     initialRelationship: 50,
+
+    interactionLevel: "special",
+
+    skills: [
+      "Gestione società",
+      "Visione progetto",
+      "Budget",
+    ],
+
+    consultationFocus: [
+      "Obiettivi societari",
+      "Investimenti",
+      "Pressione risultati",
+    ],
 
     personality: {
       style: "Ambizioso",
