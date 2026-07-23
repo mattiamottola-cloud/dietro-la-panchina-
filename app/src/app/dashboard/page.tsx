@@ -1,96 +1,156 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { staff } from "@/data/staff";
+import type { Career } from "@/types/career";
 
 export default function Dashboard() {
 
-  const [career, setCareer] = useState<any>(null);
-
+  const [career, setCareer] = useState<Career | null>(null);
   useEffect(() => {
+
     const savedCareer = localStorage.getItem("career");
 
-    if (savedCareer) {
+    if(savedCareer){
       setCareer(JSON.parse(savedCareer));
     }
+
   }, []);
 
-  if (!career) {
+
+  if(!career){
     return (
       <main className="min-h-screen bg-black text-white flex items-center justify-center">
-        <h1 className="text-3xl font-bold">
+        <h1>
           Nessuna carriera trovata
         </h1>
       </main>
     );
   }
 
-  return (
-    <main className="min-h-screen bg-black text-white p-10">
 
-      <h1 className="text-5xl font-bold mb-10">
+  return (
+
+    <main
+    className="
+    min-h-screen
+    bg-black
+    text-white
+    p-10
+    bg-cover
+    bg-center
+    "
+    style={{
+      backgroundImage:
+      "url('/images/stadium.jpg')"
+    }}
+    >
+
+
+      <div className="bg-black/70 min-h-screen p-10 rounded-3xl">
+
+
+      <h1 className="text-5xl font-bold text-center mb-6">
         DIETRO LA PANCHINA
       </h1>
 
- <div className="space-y-4 text-xl">
 
-  <p>
-    👤 Allenatore: {career.coach.name}
-  </p>
+      <div className="text-center mb-10">
 
-  <p>
-    🎂 Età: {career.coach.age}
-  </p>
+        <button
+        className="
+        bg-yellow-500
+        text-black
+        font-bold
+        px-8
+        py-4
+        rounded-xl
+        hover:scale-105
+        transition
+        "
+        >
+          AVANZA GIORNO
+        </button>
 
-  <p>
-    🌍 Nazionalità: {career.coach.nationality}
-  </p>
-
-
-  <hr className="border-gray-700 my-6" />
-
-
-  <p>
-    🏟 Squadra: {career.team.name}
-  </p>
-
-  <p>
-    ⚽ Modulo: {career.team.formation}
-  </p>
-
-  <p>
-    🎯 Obiettivo: {career.team.objective}
-  </p>
+      </div>
 
 
-  <hr className="border-gray-700 my-6" />
+
+      <div className="
+      grid
+      grid-cols-1
+      md:grid-cols-3
+      gap-6
+      ">
 
 
-  <p>
-    🧠 Stile di gioco: {career.philosophy.style}
-  </p>
+      {staff.map((person)=>(
 
-  <p>
-    🔥 Pressing: {career.philosophy.pressing}
-  </p>
+        <div
+        key={person.id}
+        className="
+        rounded-2xl
+        overflow-hidden
+        border
+        border-gray-700
+        bg-gray-900/80
+        hover:scale-105
+        transition
+        "
+        >
 
-  <p>
-    🛡 Linea difensiva: {career.philosophy.defensiveLine}
-  </p>
+          <img
+          src={person.image}
+          className="
+          w-full
+          h-48
+          object-cover
+          "
+          />
 
 
-  <hr className="border-gray-700 my-6" />
+          <div className="p-5">
+
+          <h2 className="text-2xl font-bold">
+            {person.name}
+          </h2>
+
+          <p className="text-gray-300 mt-2">
+            {person.role}
+          </p>
 
 
-  <p>
-    💰 Budget mercato: {career.finance.transferBudget} €
-  </p>
+          <button
+          className="
+          mt-5
+          w-full
+          bg-yellow-500
+          text-black
+          font-bold
+          p-3
+          rounded-xl
+          "
+          >
+            APRI CHAT
+          </button>
 
-  <p>
-    👥 Monte ingaggi: {career.finance.salaryBudget} €
-  </p>
 
-</div>
+          </div>
+
+
+        </div>
+
+      ))}
+
+
+      </div>
+
+
+      </div>
+
 
     </main>
+
   );
+
 }

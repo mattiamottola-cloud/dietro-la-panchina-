@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { teams } from "@/data/teams";
 import { useState } from "react";
+import type { Career } from "@/types/career";
 
 export default function Carriera() {
   const [selectedTeam, setSelectedTeam] = useState("");
@@ -17,38 +18,54 @@ const [defensiveLine, setDefensiveLine] = useState("");
 const [formation, setFormation] = useState("");
 const [objective, setObjective] = useState("");
 
- const startCareer = () => {
-  const career = {
+const startCareer = () => {
+  const transferBudgetNumber = Number(
+  transferBudget.replace(/\./g, "")
+);
+
+const salaryBudgetNumber = Number(
+  salaryBudget.replace(/\./g, "")
+);
+  const career: Career = {
+    currentDate: new Date().toISOString(),
 
     coach: {
       name: coachName,
-      age: coachAge,
-      nationality: nationality,
+      age: Number(coachAge),
+      nationality,
     },
 
     philosophy: {
       style: playStyle,
-      pressing: pressing,
-      defensiveLine: defensiveLine,
+      pressing,
+      defensiveLine,
     },
 
     team: {
       name: selectedTeam,
-      formation: formation,
-      objective: objective,
+      formation,
+      objective,
     },
 
     finance: {
-      transferBudget: transferBudget,
-      salaryBudget: salaryBudget,
+      initialTransferBudget: transferBudgetNumber,
+      currentTransferBudget: transferBudgetNumber,
+      initialSalaryBudget: salaryBudgetNumber,
+      currentSalaryBudget: salaryBudgetNumber,
+      transactions: [],
     },
 
+    clubState: {
+      presidentTrust: 50,
+      boardPressure: 0,
+    },
+
+    results: [],
+    meetings: [],
+    decisions: [],
   };
 
-  localStorage.setItem(
-    "career",
-    JSON.stringify(career)
-  );
+  localStorage.setItem("career", JSON.stringify(career));
 
   window.location.href = "/dashboard";
 };
