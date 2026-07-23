@@ -142,6 +142,7 @@ coachIdentity: {
   pressing,
   defensiveApproach: defensiveLine,
   notes: "",
+  communicationStyle: "",
 },
 
 staffRelations: [
@@ -172,6 +173,7 @@ staffRelations: [
 ],
 
 staffMemories: [],
+clubMemories: [],
 
 marketOperations: [],
 

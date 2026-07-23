@@ -1,5 +1,6 @@
 export type TransactionType = "purchase" | "sale";
 
+
 export type Transaction = {
   id: string;
   type: TransactionType;
@@ -7,6 +8,7 @@ export type Transaction = {
   amount: number;
   date: string;
 };
+
 
 
 export type MatchResult = {
@@ -17,7 +19,6 @@ export type MatchResult = {
   goalsFor: number;
   goalsAgainst: number;
 
-  // Dati opzionali inseriti dal mister
   possession?: number;
   shots?: number;
   shotsOnTarget?: number;
@@ -27,13 +28,21 @@ export type MatchResult = {
 };
 
 
+
 export type CoachIdentity = {
   footballStyle: string;
+
   mentality: string;
+
   pressing: string;
+
   defensiveApproach: string;
+
+  communicationStyle: string;
+
   notes: string;
 };
+
 
 
 export type StaffMemory = {
@@ -45,11 +54,21 @@ export type StaffMemory = {
 };
 
 
+
+export type ClubMemory = {
+  date: string;
+
+  description: string;
+};
+
+
+
 export type StaffRelation = {
   staffId: string;
 
   value: number;
 };
+
 
 
 export type CareerEvent = {
@@ -65,11 +84,13 @@ export type CareerEvent = {
 };
 
 
+
 export type MarketOperationStatus =
   | "open"
   | "negotiation"
   | "completed"
   | "closed";
+
 
 
 export type MarketOperation = {
@@ -85,6 +106,7 @@ export type MarketOperation = {
 
   date: string;
 };
+
 
 
 export type CareerMeeting = {
@@ -105,6 +127,7 @@ export type CareerMeeting = {
 };
 
 
+
 export type CareerDecision = {
   id: string;
 
@@ -118,8 +141,11 @@ export type CareerDecision = {
 };
 
 
+
 export type Career = {
+
   currentDate: string;
+
 
 
   coach: {
@@ -129,8 +155,10 @@ export type Career = {
   };
 
 
-  // Identità allenatore costruita nel colloquio iniziale
+
+  // DNA allenatore creato nel colloquio iniziale
   coachIdentity: CoachIdentity;
+
 
 
   philosophy: {
@@ -140,6 +168,7 @@ export type Career = {
   };
 
 
+
   team: {
     name: string;
     formation: string;
@@ -147,7 +176,9 @@ export type Career = {
   };
 
 
+
   finance: {
+
     initialTransferBudget: number;
 
     currentTransferBudget: number;
@@ -157,37 +188,54 @@ export type Career = {
     currentSalaryBudget: number;
 
     transactions: Transaction[];
+
   };
+
 
 
   clubState: {
+
     presidentTrust: number;
 
     boardPressure: number;
+
   };
+
 
 
   // Rapporti personali con lo staff
   staffRelations: StaffRelation[];
 
 
+
   // Memoria permanente dello staff
   staffMemories: StaffMemory[];
+
+
+
+  // Memoria della società
+  clubMemories: ClubMemory[];
+
 
 
   // Situazioni aperte di mercato
   marketOperations: MarketOperation[];
 
 
+
   // Eventi casuali carriera
   events: CareerEvent[];
+
 
 
   results: MatchResult[];
 
 
+
   meetings: CareerMeeting[];
 
 
+
   decisions: CareerDecision[];
+
 };
